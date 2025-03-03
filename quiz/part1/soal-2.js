@@ -15,5 +15,3 @@ function fpb(angka1, angka2) {
   console.log(fpb(22, 99)); // 11
   console.log(fpb(24, 36)); // 12
   console.log(fpb(17, 23)); // 1
-
-//first
