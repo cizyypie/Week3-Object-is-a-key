@@ -23,7 +23,7 @@ maka output:
 */
 
 function shoppingTime(memberId, money) {
-  let listPurchased = []
+  let Purchased = []
   let spend = 0;
   const items = {
     'Sepatu Stacattu': 1500000,
@@ -33,23 +33,33 @@ function shoppingTime(memberId, money) {
     'Casing Handphone': 50000
   }
 
-for (let x in items) {
+  for (let x in items) {
     if (money > items[x]) {
       spend = spend + items[x],
-      listPurchased.push(x)
+        Purchased.push(x)
     }
   }
-  
+  let change = money - spend
+  const shop = {
+    memberId: memberId,
+    money: money,
+    listPurchased: Purchased,
+    changeMoney: change
+  }
+  if (!memberId) {
+    return "Mohon maaf, toko X hanya berlaku untuk member saja"
 
-console.log(money)
-console.log(spend)
-console.log(listPurchased)
+  } else if (money < 50000) {
+    return "Mohon maaf, uang tidak cukup"
+  } else {
+    return shop
+  }
 }
 
 
 
 // TEST CASES
-// console.log(shoppingTime('1820RzKrnWn08', 2475000));
+console.log(shoppingTime('1820RzKrnWn08', 2475000));
 //{ memberId: '1820RzKrnWn08',
 // money: 2475000,
 // listPurchased:
@@ -66,6 +76,6 @@ console.log(shoppingTime('82Ku8Ma742', 170000));
 // // listPurchased:
 // //  [ 'Casing Handphone' ],
 // // changeMoney: 120000 }
-// console.log(shoppingTime('', 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
-// console.log(shoppingTime('234JdhweRxa53', 15000)); //Mohon maaf, uang tidak cukup
-// console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja
+console.log(shoppingTime('', 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
+console.log(shoppingTime('234JdhweRxa53', 15000)); //Mohon maaf, uang tidak cukup
+console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja
