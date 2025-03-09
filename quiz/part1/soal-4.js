@@ -16,6 +16,9 @@ function cariModus(arr) {
     }
   }
   // console.log(countNum)
+  // console.log(Object.keys(countNum))
+  // console.log(Object.values(countNum))
+  // console.log(Object.entries(countNum))
   let mostNum = 0;
 
   for (const x in countNum) {
