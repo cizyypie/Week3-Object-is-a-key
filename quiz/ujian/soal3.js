@@ -6,12 +6,13 @@ function highestScore(students) {
   let highest = {};
 
   for (let i = 0; i < classList.length; i++) {
-    let scoreHigh = -1;
+    let scoreHigh = -Infinity;
     let student = null;
 
     for (let j = 0; j < students.length; j++) {
       if (classList[i] === students[j].class) {
         if (students[j].score > scoreHigh) {
+          scoreHigh = students[j].score;
           student = students[j];
         }
       }
