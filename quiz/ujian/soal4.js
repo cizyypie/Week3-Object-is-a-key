@@ -21,32 +21,30 @@ Output yang diharapkan berupa Object dengan format sebagai berikut:
 
 function graduates(students) {
     var classList = ['foxes', 'wolves', 'tigers']
-    // let high ={};
-    let highest = {};
-    let list = []
+    let high ={};
 
     for (let i = 0; i < classList.length; i++) {
         // let score = -Infinity;
         let student = null;
+        let data = [];
 
         for (let j = 0; j < students.length; j++) {
             if (classList[i] === students[j].class) {
                 if (students[j].score > 75) {
-                    list.push({
-                        name: students[j].name,
-                        score: students[j].score
+                    student = students[j]
+                    data.push({
+                        name: student.name,
+                        score: student.score
                     })
                 }
-                
             }
+
         }
-        
         if (student) {
-            highest[classList[i]] = list;
+            high[classList[i]] = data
         }
     }
-
-    return highest;
+   return high;
 }
 
 console.log(graduates([
@@ -74,7 +72,8 @@ console.log(graduates([
 
 // {
 //   foxes: [
-//     { name: 'Dimitri', score: 90 }
+//     { name: 
+// 'Dimitri', score: 90 }
 //   ],
 //   wolves: [
 //     { name: 'Alexei' , score: 85 },
